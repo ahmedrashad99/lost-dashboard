@@ -1,0 +1,332 @@
+<a (click)="cancel()" class="x">X</a>
+<!-- Page content -->
+<div class="container-fluid form-shadow">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 class="mb-0" style="display: inline;">Add New Store Owner</h3>
+        </div>
+        <div class="card-body">
+          <div class="row icon-examples">
+            <form [formGroup]='storeOwnerAddForm' (ngSubmit)='addStoreOwner()' class="mt-5">
+               
+              
+              <div class="row">
+                    <div class="col-lg-6 mb-3">
+                      <div class="form-group">
+                        <label class="ms-4" for="firstName">First Name</label>
+                        <div class="form-input">
+                          <span class="icon"><i class="fa fa-user icon"></i></span>
+                          <input type="text" 
+                          [ngClass]="{'is-invalid': storeOwnerAddForm.get('firstName')?.errors
+                            && storeOwnerAddForm.get('firstName')?.touched}"
+                          class="mt-2 rounded-pill form-control" 
+                          formControlName="firstName"
+                          placeholder="Enter your first name!">
+                        </div>
+                        <div class="invalid-feedback">Please enter your first name!</div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                      <div class="form-group">
+                          <label class="ms-4" for="lastName">Last Name</label>
+                          <div class="form-input">
+                            <span class="icon"><i class="fa fa-user icon"></i></span>
+                            <input type="text" 
+                            [ngClass]="{'is-invalid': storeOwnerAddForm.get('lastName')?.errors
+                              && storeOwnerAddForm.get('lastName')?.touched}"
+                            class="mt-2 rounded-pill form-control"
+                            formControlName="lastName"
+                            placeholder="Enter your last name!">
+                          </div>
+                          <div class="invalid-feedback">Please enter your last name!</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="email">E-Mail Address</label>
+                        <div class="form-input">
+                          <i class="fa fa-envelope icon"></i>
+                          <input type="text"
+                          [ngClass]="{'is-invalid': storeOwnerAddForm.get('email')?.errors
+                            && storeOwnerAddForm.get('email')?.touched}"
+                          class="mt-2 rounded-pill form-control"
+                          formControlName="email"
+                          placeholder="Enter your E-Mail Address!">
+                        </div>
+                        <div class="invalid-feedback">Please enter your E-Mail Address!</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="mobile">Mobile Number</label>
+                        <div class="form-input">
+                          <i class="fa fa-phone icon"></i>
+                          <input type="text"
+                          [ngClass]="{'is-invalid': storeOwnerAddForm.get('mobile')?.errors
+                            && storeOwnerAddForm.get('mobile')?.touched}"
+                          class="mt-2 rounded-pill form-control"
+                          formControlName="mobile"
+                          placeholder="Enter your Mobile Number!">
+                        </div>
+                        <div class="invalid-feedback">Please enter your Mobile Number!</div>
+                      </div>
+                  </div>
+              </div>
+
+              <div >
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label class="form-label" for="customFile">Upload photo</label>
+                    <div class="form-input">
+                      <i class="fa fa-camera icon"></i>
+                      <input type="file" class="mt-2 rounded-pill form-control" id="customFile" (change)="onChange($event)" />
+                    </div>
+                      <div class="invalid-feedback">Please upload your photo!</div>
+                    </div>
+                </div>
+            </div>
+              <h3 class="mt-0 mb-4">Contact information Information</h3>
+
+
+
+              <div class="row">
+                <div class="mb-3 col-lg-6">
+                  <div class="form-group">
+                      <label class="ms-4" for="password">Password</label>
+                      <div class="form-input">
+                        <i class="fa fa-lock icon"></i>
+                        <input type="password"
+                        [ngClass]="{'is-invalid': storeOwnerAddForm.get('password')?.errors
+                          && storeOwnerAddForm.get('password')?.touched}"
+                        class="mt-2 rounded-pill form-control"
+                        formControlName="password"
+                        placeholder="Password">
+                      </div>
+                        <div class="invalid-feedback"
+                          *ngIf="storeOwnerAddForm.get('password')?.hasError('required') 
+                            && storeOwnerAddForm.get('password')?.touched">
+                            Password is required
+                        </div>
+                        <div class="invalid-feedback" 
+                        *ngIf="storeOwnerAddForm.get('password')?.hasError('minlength') 
+                          && storeOwnerAddForm.get('password')?.touched">
+                          Password must be at least 4 characters
+                      </div>
+                      <div class="invalid-feedback" 
+                      *ngIf="storeOwnerAddForm.get('password')?.hasError('maxlength') 
+                        && storeOwnerAddForm.get('password')?.touched">
+                        Password cannot exceed 8 characters
+                    </div>
+                    </div>
+                </div>
+                <div class="mb-3 col-lg-6">
+                  <div class="form-group">
+                      <label class="ms-4" for="confirmPassword">Confirm Password</label>
+                      <div class="form-input">
+                        <i class="fa fa-lock icon"></i>
+                        <input 
+                        [ngClass]="{'is-invalid': storeOwnerAddForm.get('confirmPassword')?.errors 
+                          && storeOwnerAddForm.get('confirmPassword')?.touched
+                          || storeOwnerAddForm.get('confirmPassword')?.touched
+                          && storeOwnerAddForm.hasError('mismatch')}"
+                        type="password" 
+                        class="mt-2 rounded-pill form-control"
+                        formControlName="confirmPassword"
+                        placeholder="Confirm Password">
+                      </div>
+                        <div class="invalid-feedback" 
+                        *ngIf="storeOwnerAddForm.get('confirmPassword')?.hasError('required') 
+                          && storeOwnerAddForm.get('confirmPassword')?.touched">
+                          Confirming Password is required!
+                      </div>
+                      <div class="invalid-feedback" 
+                      *ngIf="storeOwnerAddForm.hasError('mismatch') 
+                        && storeOwnerAddForm.get('confirmPassword')?.touched">
+                        Passwords must match!
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+                  <div class="row">
+
+                    <div class="col-lg-4 mb-3">
+                      <div class="form-group">
+                          <label class="ms-4" for="government">Government</label>
+                          <div class="form-input">
+                            <i class="fa fa-road icon"></i>
+                            <select class="form-select rounded-pill mt-2 form-select-md "
+                          aria-label=".form-select-lg example" formControlName="government" (change)="onSelectGovernment($event)">
+                          <optgroup label="Select Government">
+                            <option *ngFor="let government of governments" value="{{government.id}}">{{government.id}}</option>
+                          </optgroup>
+                      </select>
+                        </div>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-4 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="city">City</label>
+                        <div class="form-input">
+                          <i class="fa fa-road icon"></i>
+                          <select class="form-select rounded-pill mt-2 form-select-md "
+                        aria-label=".form-select-lg example" formControlName="city">
+                        <optgroup label="Select City">
+                          <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+                        </optgroup>
+                    </select>
+                      </div>
+                  </div>
+                    
+                </div>
+                    <div class="col-lg-4 mb-3">
+                      <div class="form-group">
+                          <label class="ms-4" for="street">Street Address</label>
+                          <div class="form-input">
+                            <i class="fa fa-road icon"></i>
+                            <input type="text" 
+                            [ngClass]="{'is-invalid': storeOwnerAddForm.get('street')?.errors
+                              && storeOwnerAddForm.get('street')?.touched}"
+                            class="mt-2 rounded-pill form-control"
+                            formControlName="street"
+                            placeholder="Enter your street address!">
+                          </div>
+                          <div class="invalid-feedback">Please enter your street address!</div>
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div>
+                  <div class="form-group">
+                      <label class="ms-4" for="storeName">Store Name</label>
+                      <div class="form-input">
+                        <i class="fas fa-store icon"></i>
+                        <input type="text" 
+                        [ngClass]="{'is-invalid': storeOwnerAddForm.get('storeName')?.errors
+                          && storeOwnerAddForm.get('storeName')?.touched}"
+                        class="mt-2 rounded-pill form-control"
+                        formControlName="storeName"
+                        placeholder="Enter store name!">
+                      </div>
+                      <div class="invalid-feedback">please Enter your store name!</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="storeMobile_1">Store Mobile Number 1</label>
+                        <div class="form-input">
+                          <i class="fa fa-phone icon"></i>
+                          <input type="text"
+                          [ngClass]="{'is-invalid': storeOwnerAddForm.get('storeMobile_1')?.errors
+                            && storeOwnerAddForm.get('storeMobile_1')?.touched}"
+                          class="mt-2 rounded-pill form-control"
+                          formControlName="storeMobile_1"
+                          placeholder="Enter your Mobile Number!">
+                        </div>
+                        <div class="invalid-feedback">Please enter your Mobile Number!</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="storeMobile_2">Store Mobile Number 2</label>
+                        <div class="form-input">
+                          <i class="fa fa-phone icon"></i>
+                          <input type="text"
+                          [ngClass]="{'is-invalid': storeOwnerAddForm.get('storeMobile_2')?.errors
+                            && storeOwnerAddForm.get('storeMobile_2')?.touched}"
+                          class="mt-2 rounded-pill form-control"
+                          formControlName="storeMobile_2"
+                          placeholder="Enter your Mobile Number!">
+                        </div>
+                        <div class="invalid-feedback">Please enter your Mobile Number!</div>
+                      </div>
+                  </div>
+              </div>
+
+
+
+                  <div class=" mb-3">
+                    <div class="form-group">
+                      <label class="ms-4" for="firstName">Address</label>
+                      <div class="form-input">
+                        <i class="fa fa-address-book icon"></i>
+                        <input type="text"
+                        [ngClass]="{'is-invalid': storeOwnerAddForm.get('firstName')?.errors
+                          && storeOwnerAddForm.get('firstName')?.touched}"
+                        class="mt-2 rounded-pill form-control" 
+                        formControlName="firstName"
+                        placeholder="Enter your address!">
+                      </div>
+                      <div class="invalid-feedback">Please enter your adderss!</div>
+                    </div>
+                  </div>
+                  <div class="form-floating mb-4 mt-4">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Address Note</label>
+                </div>
+              
+
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                      <label class="ms-4" for="whatsApp">WhatsApp</label>
+                      <div class="form-input">
+                        <i class="fa fa-whatsapp icon"></i>
+                        <input type="text" 
+                        [ngClass]="{'is-invalid': storeOwnerAddForm.get('whatsApp')?.errors
+                          && storeOwnerAddForm.get('whatsApp')?.touched}"
+                        class="mt-2 rounded-pill form-control" 
+                        formControlName="whatsapp"
+                        placeholder="Enter your WhatsApp!">
+                      </div>
+                      <div class="invalid-feedback">Please enter your WhatsApp!</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="facebookLink">Facebook</label>
+                        <div class="form-input">
+                          <i class="fa fa-facebook icon"></i>
+                          <input type="text"  
+                          [ngClass]="{'is-invalid': storeOwnerAddForm.get('facebook')?.errors
+                            && storeOwnerAddForm.get('facebook')?.touched}"
+                          class="mt-2 rounded-pill form-control"
+                          formControlName="facebookLink"
+                          placeholder="Enter your Facebook!">
+                        </div>
+                        <div class="invalid-feedback">Please enter your Facebook!</div>
+                      </div>
+                  </div>
+              </div>
+                <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-default rounded-pill btn d-inline">Add Store</button>
+                <button class="btn btn-danger rounded-pill btn d-inline" type="button" (click)="cancel()">Cancel</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="col-lg-3 col-md-6">
+              <a placement="top-center" class="btn-icon-clipboard">
+                <div>
+                  <i class="fas fa-user"></i>
+                  <span>UserName</span>
+                </div>
+              </a>
+            </div> -->

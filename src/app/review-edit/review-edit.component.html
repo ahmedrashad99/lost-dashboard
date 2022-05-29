@@ -1,0 +1,123 @@
+<a (click)="cancel()" class="x">X</a>
+<!-- Page content -->
+<div class="container-fluid form-shadow">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 class="mb-0" style="display: inline;">Edit review</h3>
+        </div>
+       
+
+
+        <div class="card-body">
+          <div class="row icon-examples">
+            <form #editReviewForm="ngForm" (ngSubmit)='editReview()' class="mt-3">
+              <div class="row">
+                <div class="col-md-6 mt-3">
+                  <label class="mb-3" for="storeOwner">Select Store Owner</label>
+                    <select class="form-select rounded-pill form-select-md mb-3"
+                        aria-label=".form-select-lg example" [(ngModel)]="review.ownerID" name="ownerID">
+                        <option value='x'>All Owners</option>
+                        <option *ngFor="let Owner of storeOwners" value="{{ Owner.ownerID }}">{{ Owner.firstName + ' ' + Owner.lastName }}</option>
+                    </select>
+                  </div>
+                    <div class="col-md-6 mt-3">
+                      <label class="mb-3" for="reportID">Select Report</label>
+                      <select class="form-select rounded-pill form-select-md mb-3"
+                          aria-label=".form-select-lg example" [(ngModel)]="review.reportID" name="reportID">
+                          <option value="x">All Devices</option>
+                          <option *ngFor="let Report of reports" value="{{ Report.reportID }}">{{ Report.serialNumber }}</option>
+                      </select>
+                  </div>
+                
+              </div>
+          <div class="row">
+            <div class="col-lg-6 mb-3">
+            <div class="form-group">
+                <label class="ms-2" for="theifName">Thief Name</label>
+                <div class="form-input">
+                  <i class="fa fa-user icon"></i>
+                  <input type="text" 
+                  class="mt-2 rounded-pill form-control"
+                  [(ngModel)]="review.theifName"
+                  name="theifName"
+                  placeholder="Change the theif's name!">
+                </div>
+                <div class="invalid-feedback">Please change the theif's name!</div>
+              </div>
+          </div>
+          <div class="col-lg-6 mb-3">
+          <div class="form-group">
+            <label class="ms-4" for="theifMobile">Theif mobile Number</label>
+            <div class="form-input">
+              <i class="fa fa-phone icon"></i>
+              <input type="text"
+              class="mt-2 rounded-pill form-control"
+              [(ngModel)]="review.theifMobile"
+              name="theifMobile"
+              placeholder="Change your Mobile Number!">
+            </div>
+            <div class="invalid-feedback">Please Change your Mobile Number!</div>
+          </div>
+          </div>
+            </div>
+          
+
+            <div class="form-group">
+              <label class="ms-4" for="theifNatID">National ID</label>
+              <div class="form-input">
+                <i class="fa fa-id-card icon"></i>
+                <input type="text"
+                class="mt-2 rounded-pill form-control"
+                [(ngModel)]="review.theifNatID"
+                name="theifNatID"
+                placeholder="Change the national ID!">
+              </div>
+              <div class="invalid-feedback">Please Change the national ID!</div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3">
+                <div class="mb-3">
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label class="form-label" for="theifPicture">Upload photo</label>
+                      <div class="form-input">
+                        <i class="fa fa-camera icon"></i>
+                        <input type="file" class="mt-2 rounded-pill form-control" id="theifPicture" (change)="onChange($event)" />
+                      </div>
+                        <div class="invalid-feedback">Please upload your photo!</div>
+                      </div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+          <div class="form-floating mt-4">
+            <label for="additional_info">Additional Info</label>
+            <input class="form-control" placeholder="Leave a comment here" id="additional_info"
+                style="height: 100px" [(ngModel)]="review.additional_info" name="additional_info">
+          </div>
+              
+          <div class="d-flex justify-content-cChange mt-4">
+              <button type="submit" class="btn btn-default rounded-pill btn d-inline">Add review</button>
+              <button class="btn btn-danger rounded-pill btn d-inline" type="button" (click)="cancel()">Cancel</button>
+              </div>
+              <div class="clearfix"></div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="col-lg-3 col-md-6">
+              <a placement="top-cChange" class="btn-icon-clipboard">
+                <div>
+                  <i class="fas fa-review"></i>
+                  <span>reviewName</span>
+                </div>
+              </a>
+            </div> -->

@@ -1,0 +1,78 @@
+/* The switch - the box around the toggle.toggle-token */
+.toggle-token {
+    background-color: #ddd;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: .4s;
+  }
+  
+  /* Hide default HTML checkbox */
+  .input-hidden {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The toggle.toggle-token */
+  .toggle-token:before {
+    position: relative;
+    content: '+';
+    font-weight: 900;
+    transition: .4s;
+  }
+  
+  input:checked + .toggle-token {
+    background-color: #fff3cd;
+  }
+  
+  input:checked + .toggle-token:before {
+    content: '\2713';
+  }
+
+  input:focus + .toggle-token {
+    box-shadow: 0 0 1px #fff3cd;
+  }
+  
+  /* Rounded toggle.toggle-tokens */
+  .toggle-token.round {
+    border-radius: 34px;
+  }
+  
+  .toggle-token.round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+  
+// input icons  
+.form-input {
+  margin: 10px auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  border: 2px solid #eee;
+  padding: 5px 10px 5px 50px;
+  font-size: 15px;
+  line-height: 30px;
+  outline: 0;
+  display: block;
+  width: 100%;
+}
+.icon {
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  font-size: 20px;
+  color: black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}

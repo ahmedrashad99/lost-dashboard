@@ -1,0 +1,22 @@
+// .icon-bg {
+//     background-color: #ec6a1e;
+//     padding-left: 4px;
+//     padding-right: 4px;
+// }
+.fade-effect {
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+.padding {
+    padding: 2rem !important;
+}

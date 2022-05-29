@@ -1,0 +1,268 @@
+<link rel="stylesheet" 
+href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a (click)="cancel()" class="x">X</a>
+<!-- Page content -->
+<div class="container-fluid form-shadow">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 class="mb-0" style="display: inline;">Edit Store Owner</h3>
+        </div>
+        <div class="card-body mt-0">
+          <div class="row icon-examples">
+            <form #editStoreOwnerForm='ngForm' (ngSubmit)='editStoreOwner()' class="mt-3">
+              <h3 class="mb-4">Personal Information</h3>
+              <div class="row">
+                  <div class="col-lg-6 ">
+
+                    <div class="form-group ">
+                      <label class=" ms-4" for="firstName">First Name</label>
+                      <div class="form-input">
+                      <span class="icon"><i class="fa fa-user icon"></i></span>
+                      <input type="text" 
+                        class=" mt-2 rounded-pill form-control"
+                        placeholder="Enter your first Name!"
+                        [(ngModel)]="storeOwner.firstName"
+                        name="firstName">
+                      </div>
+                      <div class="invalid-feedback">Please enter your first Name!</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group ">
+                        <label class=" ms-4" for="lastName">Last Name</label>
+                        <div class="form-input">
+                        <span class="icon"><i class="fa fa-user icon"></i></span>
+                        <input type="text" 
+                          class="input-field mt-2 rounded-pill form-control"
+                          placeholder="Enter your last name!"
+                          [(ngModel)]="storeOwner.lastName"
+                          name="lastName">
+                        </div>
+                        <div class="invalid-feedback">Please enter your last name!</div>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-lg-6 mb-3 ">
+                  <div class="input-icons form-group">
+                      <label class="ms-4 input-field" for="email">E-Mail Address</label>
+                     <div class="form-input">
+                      <i class="fa fa-envelope icon"></i>
+                      <input type="text"
+                        class="mt-2 rounded-pill form-control"
+                        placeholder="Enter your E-Mail Editress!"
+                        [(ngModel)]="storeOwner.email"
+                        name="email">
+                     </div>
+                      
+                        
+                        <div class="invalid-feedback">Please enter your E-Mail Editress!</div>
+                    </div>
+                </div>
+              <div class="col-lg-6 mb-3">
+                <div class="form-group">
+                    <label class="ms-4" for="mobile">Mobile Number</label>
+                    <div class="form-input">
+                      <i class="fa fa-id-card icon"></i>
+                      <input type="text"
+                      class="mt-2 rounded-pill form-control"
+                      placeholder="Enter your mobile number!"
+                      [(ngModel)]="storeOwner.mobile"
+                        name="mobile">
+                    
+                    </div>
+                    <div class="invalid-feedback">Mobile Number is required!</div>
+                  </div>
+              </div>
+      
+              </div>
+
+
+
+              <div>
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label class="form-label" for="customFile">Upload photo</label>
+                    <div class="form-input">
+                      <i class="fa fa-camera icon"></i>
+                      <input type="file" class="mt-2 rounded-pill form-control" id="customFile" (change)="onChange($event)" />
+                    </div>
+                      <div class="invalid-feedback">Please upload your photo!</div>
+                    </div>
+                </div>
+            </div>
+              <h3 class="mt-0 mb-4">Contact information Information</h3>
+            
+              
+          <div class="row">
+            <div class="mb-3 col-lg-6">
+              <div class="form-group">
+                  <label class="ms-4" for="password">Password</label>
+                  <div class="form-input">
+                    <i class="fa fa-lock icon"></i>
+                    <input type="password"
+                    class="mt-2 rounded-pill form-control"
+                    placeholder="Password"
+                    [(ngModel)]="storeOwner.password"
+                        name="password">
+                    
+                  </div>
+                  <div class="invalid-feedback">
+                        Password is required
+                    </div>
+                    <div class="invalid-feedback">
+                      Password must be at least 4 characters
+                  </div>
+                  <div class="invalid-feedback">
+                    Password cannot exceed 8 characters
+                </div>
+                </div>
+            </div>
+            <div class="mb-3 col-lg-6">
+              <div class="form-group">
+                  <label class="ms-4" for="confirmPassword">Confirm Password</label>
+                  <div class="form-input">
+                    <i class="fa fa-lock icon"></i>
+                    <input 
+                    type="password" 
+                    class="mt-2 rounded-pill form-control"
+                    placeholder="Confirm Password"
+                    [(ngModel)]="storeOwner.confirmPassword"
+                    name="confirmPassword">
+                  </div>
+               
+                    <div class="invalid-feedback">
+                      Confirming Password is required!
+                  </div>
+                  <div class="invalid-feedback">
+                    Passwords must match!
+                </div>
+                </div>
+            </div>
+        </div>
+          
+              <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="storeMobile_1">Mobile Number</label>
+                        <div class="form-input">
+                          <i class="fa fa-phone icon"></i>
+                          <input type="text" 
+                          class="mt-2 rounded-pill form-control"
+                          placeholder="Enter your Mobile Number!"
+                          [(ngModel)]="storeOwner.Store.storeMobile_1"
+                          name="Store.storeMobile_1">
+                        
+                        </div>
+                        <div class="invalid-feedback">Please enter your Mobile Number!</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="storeMobile_2">Secondary Mobile Number</label>
+                        <div class="form-input">
+                          <i class="fa fa-phone icon"></i>
+                        <input type="text" 
+                          class="mt-2 rounded-pill form-control"
+                          placeholder="Enter an alternative Mobile Number!"
+                          [(ngModel)]="storeOwner.Store.storeMobile_2"
+                          name="Store.storeMobile_2">
+                        </div>
+                        <div class="invalid-feedback">Please enter an alternative Mobile Number!</div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4 mt-3">
+                  <select class="form-select rounded-pill form-select-md "
+                      aria-label=".form-select-lg example" [(ngModel)]="storeOwner.Store.government"
+                      name="storeOwner.Store" (change)="onSelectGovernment($event)">
+                      <optgroup label="Select Government">
+                        <option *ngFor="let government of governments" value="{{government.id}}">{{government.id}}</option>
+                      </optgroup>
+                  </select>
+              </div>
+              <div class="col-md-4 mt-3">
+                <select class="form-select rounded-pill form-select-md "
+                    aria-label=".form-select-lg example" [(ngModel)]="storeOwner.Store.city"
+                    name="storeOwner.Store">
+                    <optgroup label="Select City">
+                      <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+                    </optgroup>
+                </select>
+            </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                      <div class="form-input">
+                        <i class="fa fa-road icon"></i>
+                        <input type="text" 
+                        class=" rounded-pill form-control"
+                        placeholder="Enter your street Editress!" [(ngModel)]="storeOwner.Store.street"
+                        name="Store.street">
+                     
+                      </div>
+                      <div class="invalid-feedback">Please enter your street Address!</div>
+                    </div>
+                </div>
+            </div>
+            <label for="floatingTextarea2">Address Note</label>
+            <div class="form-floating mb-4 mt-4">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+                  <label for="floatingTextarea2">enter your address</label>
+          </div>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <div class="form-group">
+                    <label class="ms-4" for="whatsapp">WhatsApp</label>
+                    <div class="form-input">
+                      <i class="fa fa-whatsapp icon"></i>
+                      <input type="text" 
+                      class="mt-2 rounded-pill form-control" 
+                      placeholder="Enter your WhatsApp!" [(ngModel)]="storeOwner.Store.whatsapp"
+                      name="Store.whatsapp">
+                    
+                    </div>
+                    <div class="invalid-feedback">Please enter your WhatsApp!</div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <div class="form-group">
+                      <label class="ms-4" for="facebookLink">Facebook</label>
+                      <div class="form-input">
+                        <i class="fa fa-facebook icon"></i>
+                        <input type="text" 
+                        class="mt-2 rounded-pill form-control"
+                        placeholder="Enter your Facebook!" [(ngModel)]="storeOwner.Store.facebookLink"
+                        name="Store.facebookLink">
+                      
+                      </div>
+                      <div class="invalid-feedback">Please enter your Facebook!</div>
+                    </div>
+                </div>
+            </div>
+         
+
+
+
+              <div class="d-flex justify-content-center mt-4">
+              <button type="submit" class="btn btn-default rounded-pill btn d-inline">Edit Store Owner</button>
+              <button class="btn btn-danger rounded-pill btn d-inline" type="button" (click)="cancel()">Cancel</button>
+              </div>
+              <div class="clearfix"></div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a15890c302.js" crossorigin="anonymous"></script>

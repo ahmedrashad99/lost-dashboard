@@ -1,0 +1,39 @@
+.status {
+    color: white; 
+    width: 5rem; 
+    padding: 3px;
+    text-align: center;
+    border-radius: 5px;
+  
+    font-weight: bold;
+}
+.Rejected
+{
+    background-color: #f53444;
+    border-color: #f5c6cb;
+}
+
+.Found
+{
+    background-color: #53e275;
+    border-color: #c3e6cb;
+}
+.pending
+{
+    background-color: #b7d6f8;
+    border-color: #b8daff;
+}
+
+.fresh-table {
+    overflow-y: auto;
+  }
+@media (max-width: 1806px) {
+    .btn-toolbar {
+      display: inline;
+    }
+  }
+
+
+
+
+

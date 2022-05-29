@@ -1,0 +1,306 @@
+.bg-grad {
+    background: linear-gradient(-135deg, #d43396, #6541c1);
+}
+
+.home-testimonial h3 {
+    color: var(--orange);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase
+}
+
+.home-testimonial h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700
+}
+
+.testimonial-inner {
+    top: -174px
+}
+
+.testimonial-inner .tour-desc {
+    border-radius: 5px;
+    padding: 40px;
+}
+
+.color-grey-3 {
+    font-family: "Montserrat", Sans-serif;
+    font-size: 14px;
+    color: #6c83a2
+}
+
+.testimonial-inner img.tm-people {
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    max-width: none
+}
+
+.link-name {
+    font-family: "Montserrat", Sans-serif;
+    font-size: 16px;
+    color: #6c83a2
+}
+
+.link-position {
+    font-family: "Montserrat", Sans-serif;
+    font-size: 12px;
+    color: #6c83a2
+}
+
+.tour-item {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.usersWidth {
+    width: auto;
+    margin-left: 18rem;
+    margin-top: -8rem !important;
+}
+
+.dashboard-bg {
+    background: white !important;
+}
+
+.ls-1 {
+    letter-spacing: 0.0625rem;
+}
+.font-family {
+    font-family: "Ubuntu", sans-serif;
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+p {
+    color: black;
+}
+// .counter::after {
+//     content: counter(count);
+//     animation: counter 0.3s forwards;
+//   }
+  
+//   @keyframes counter {
+//     0% {
+//       counter-increment: count 0;
+//     }
+//     10% {
+//       counter-increment: count 1;
+//     }
+//     20% {
+//       counter-increment: count 2;
+//     }
+//     30% {
+//       counter-increment: count 3;
+//     }
+//     40% {
+//       counter-increment: count 4;
+//     }
+//     50% {
+//       counter-increment: count 5;
+//     }
+//     60% {
+//       counter-increment: count 6;
+//     }
+//     70% {
+//       counter-increment: count 7;
+//     }
+//     80% {
+//       counter-increment: count 8;
+//     }
+//     90% {
+//       counter-increment: count 9;
+//     }
+//     100% {
+//       counter-increment: count 10;
+//     }
+//   }
+
+
+// @property --num {
+//     syntax: "<integer>";
+//     initial-value: 0;
+//     inherits: false;
+//   }
+
+
+  
+
+  .btn-group-left {
+      margin-left: 7.8rem;
+  }
+
+
+
+
+  .single_advisor_profile {
+    position: relative;
+    margin-bottom: 40px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    z-index: 1;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+    box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+}
+.single_advisor_profile .advisor_thumb {
+
+
+    border-radius: 15px 15px 0 0;
+    background-color: transparent;
+    overflow: hidden;
+}
+.single_advisor_profile .advisor_thumb::after {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    position: absolute;
+    width: 150%;
+    height: 80px;
+    bottom: -45px;
+    left: -25%;
+    content: "";
+    background-color: transparent;
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+}
+@media only screen and (max-width: 575px) {
+    .single_advisor_profile .advisor_thumb::after {
+        height: 160px;
+        bottom: -90px;
+    }
+}
+.single_advisor_profile .advisor_thumb .social-info {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    right: 30px;
+    text-align: right;
+}
+.single_advisor_profile .advisor_thumb .social-info a {
+    font-size: 14px;
+    color: #020710;
+    padding: 0 5px;
+}
+.single_advisor_profile .advisor_thumb .social-info a:hover,
+.single_advisor_profile .advisor_thumb .social-info a:focus {
+    color: #3f43fd;
+}
+.single_advisor_profile .advisor_thumb .social-info a:last-child {
+    padding-right: 0;
+}
+.single_advisor_profile .single_advisor_details_info {
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    text-align: left;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    border-radius: 0 0 15px 15px;
+    background-color: #ffffff;
+}
+// .single_advisor_profile .single_advisor_details_info::after {
+//     -webkit-transition-duration: 500ms;
+//     transition-duration: 500ms;
+//     position: absolute;
+//     z-index: 1;
+//     width: 2.5rem;
+//     height: 3px;
+//     background-color: red;
+//     content: "";
+//     top: 12px;
+//     right: 30px;
+// }
+.single_advisor_profile .single_advisor_details_info h6 {
+    margin-bottom: 0.25rem;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single_advisor_profile .single_advisor_details_info h6 {
+        font-size: 14px;
+    }
+}
+.single_advisor_profile .single_advisor_details_info p {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single_advisor_profile .single_advisor_details_info p {
+        font-size: 12px;
+    }
+}
+.single_advisor_profile:hover .advisor_thumb::after,
+.single_advisor_profile:focus .advisor_thumb::after {
+    background-color: transparent;
+}
+.single_advisor_profile:hover .advisor_thumb .social-info a,
+.single_advisor_profile:focus .advisor_thumb .social-info a {
+    color: white;
+}
+.single_advisor_profile:hover .advisor_thumb .social-info a:hover,
+.single_advisor_profile:hover .advisor_thumb .social-info a:focus,
+.single_advisor_profile:focus .advisor_thumb .social-info a:hover,
+.single_advisor_profile:focus .advisor_thumb .social-info a:focus {
+    color: #ffffff;
+}
+.single_advisor_profile:hover .single_advisor_details_info,
+.single_advisor_profile:focus .single_advisor_details_info {
+    background-color: #FE3031;
+}
+.single_advisor_profile:hover .single_advisor_details_info::after,
+.single_advisor_profile:focus .single_advisor_details_info::after {
+    background-color: #ffffff;
+}
+.single_advisor_profile:hover .single_advisor_details_info h6,
+.single_advisor_profile:focus .single_advisor_details_info h6 {
+    color: #ffffff;
+}
+.single_advisor_profile:hover .single_advisor_details_info p,
+.single_advisor_profile:focus .single_advisor_details_info p {
+    color: #ffffff;
+}
+.card_icon_btn
+{
+    // margin-left: 7px; 
+    width: 20px;
+    // filter: brightness(100%);
+    // filter: contrast(100%);
+    // filter: drop-shadow(10px 10px 10px rgb(174, 174, 174));
+}
+
+.card_icon_info
+{
+    width: 25px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+}
+.icon_top
+{
+    width: 45px;
+}
+.card-btn
+{
+    background-color: rgba(64, 64, 64, 0.114);
+    padding: 0.625rem 0.5rem !important;
+}
+
+@property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+.counter {
+    transition: --num 1s;
+    counter-set: number var(--num);
+    font: 800 40px system-ui;
+}
+
+.counter::after {
+    content: counter(number);
+}

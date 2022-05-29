@@ -1,0 +1,32 @@
+.header {
+    position: relative;
+    }
+.bg-grad {
+        background: linear-gradient(-135deg, #d87d28, #cf2d5e) !important;
+    }
+@media (min-width:768px){
+.terminal {
+    margin-left: 15.7rem;
+    padding-top: 8rem !important;
+    }
+}
+.lost-header {
+    padding-bottom: 8rem !important;
+    padding-top: 3rem;
+}
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+.fade-effect {
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

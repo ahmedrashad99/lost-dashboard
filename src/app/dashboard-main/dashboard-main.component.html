@@ -1,0 +1,173 @@
+<!-- card stats -->
+<div class="custom-container usersWidth">
+  <div class="row">
+    <div class="mb-5 mb-xl-0">
+      <div class="card dashboard-bg shadow">
+        <div class="custom-container" style="margin-top: 20px;">
+    
+          <div class="header-body">
+            
+            <!-- Card stats -->
+            <div class="row fade-effect">
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0 bg-blue">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-white mb-0">Users</h5>
+                        <span class="h2 font-weight-bold mb-0 counter text-white" id="usersCount"></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="">
+                          <img class="icon_top" src="../../assets/img/icon/user.png">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0 bg-red">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-white mb-0">Reports</h5>
+                        <span class="h2 font-weight-bold mb-0 counter text-white" id="reportsCount"></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-red text-white rounded-circle shadow">
+                          <img class="icon_top" src="../../assets/img/icon/seo-report.png">
+                        </div>
+                      </div>
+                    </div>
+                    <br/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0 bg-green">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-white mb-0" style="font-size: .7rem;">Store Owners</h5>
+                        <span class="h2 font-weight-bold mb-0 counter text-white" id="storeOwnersCount"></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-green text-white rounded-circle shadow">
+                          <img class="icon_top" src="../../assets/img/icon/store.png">
+                        </div>
+                      </div>
+                    </div>
+                    <br/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0 bg-warning">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-white mb-0">Reviews</h5>
+                        <span class="h2 font-weight-bold mb-0 counter text-white" id="reviewsCount"></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                          <img class="icon_top" src="../../assets/img/icon/reviews.png">
+                        </div>
+                      </div>
+                    </div>
+                    <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+          </div>
+        </div>
+
+        <div class="card-body">
+        <div class="text-white">
+          
+          <!--Start Performance-->
+            <!-- <div class="col-xl-4" style="position: absolute; right: 0;">
+              <div class="card shadow">
+                <div class="card-header bg-transparent">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
+                      <h2 class="mb-0 font-family">Most Trusted</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  
+                  <div class="link-name text-muted" style="font-weight: bold;"><i class="fas fa-store pr-2"></i>Al-Safaa Store</div>
+                  <p>Location: 19 Ahmed Sherrif St, Helwan, Cairo</p>
+                  <hr class="w-50 mx-auto">
+                  <div class="link-name text-muted" style="font-weight: bold;"><i class="fas fa-store pr-2"></i>Dream 2000</div>
+                  <p>Location: 13 El Cornich St, Maadi, Cairo</p>
+                  <hr class="w-50 mx-auto">
+                  <div class="link-name text-muted" style="font-weight: bold;"><i class="fas fa-store pr-2"></i>Haram Store</div>
+                  <p>Location: 12 Ahmed Bahgat, Haram, Giza</p>
+                </div>
+              </div>
+            </div> -->
+        <!--End Performance-->
+          <div class="home-testimonial">
+            
+            <h2 class="mb-0 font-family mt-4">Store Owner with Most Reviews</h2>
+            
+            <div class="custom-container">
+                <div class="home-testimonial-bottom">
+                    <div class="testimonial-inner" style="margin-right: 90px;">
+                        <div class="row d-flex justify-content-center my-5" style="width: 110%;">
+                          
+                          <!-- Single Advisor-->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                              <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                                <!-- Team Thumb-->
+                                <div class="advisor_thumb"><img src="{{ storeOwners[0].avatar }}" alt="" style="height: 315px; width: 315px;">
+                                  <!-- Social Info-->
+                                  <!-- <div class="social-info"><a href="#"><img class="card_img_icon" src="../../assets/img/icon/editing.png"></a><a href="#"><img class="card_img_icon" src="../../assets/img/icon/delete.png"></a></div> -->
+                                </div>
+                                <!-- Team Details-->       
+                                <div class="single_advisor_details_info">
+                                   <!-- Social Info-->
+                                  <h5><img class="card_icon_info" src="../../assets/img/icon/user.png">{{ storeOwners[0].fullName }}</h5>
+                                  <h5><img class="card_icon_info" src="../../assets/img/icon/store.png">{{ storeOwners[0].Store.storeName }}</h5>
+                                  <h5><img class="card_icon_info" src="../../assets/img/icon/reviews.png">{{ storeOwners[0].reviews_count }}</h5>
+                                  <!-- buttons -->
+
+
+                                  <div class="btn-group-left" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                      <button type="button" class="btn card-btn"><img class="card_icon_btn" src="../../assets/img/icon/editing.png"></button>
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                      <button type="button" class="btn card-btn" (click)="deleteStoreOwner(storeOwners[0].ownerID)"><img class="card_icon_btn" src="../../assets/img/icon/delete.png"></button>
+                                    </div>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                        
+                        
+              
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

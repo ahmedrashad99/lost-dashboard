@@ -1,0 +1,182 @@
+<a (click)="cancel()" class="x">X</a>
+<!-- Page content -->
+<div class="container-fluid form-shadow">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header bg-transparent">
+            <h3 class="mb-0" style="display: inline;">Add New Report</h3>
+          </div>
+          <div class="card-body">
+            <div class="row icon-examples">
+              <form [formGroup]='reportAddForm' (ngSubmit)='addReport()' class="mt-3">
+                  <div class="specify-input">
+                    <div class="row">
+                    <div class="col-lg-6">
+                        <label for="user">select user</label>
+                        <div class="form-input">
+                        <select class="form-select rounded-pill form-select-md mt-2 "
+                            aria-label=".form-select-lg example" formControlName="userID">
+                            <option selected>All Users</option>
+                            <option *ngFor="let user of users" value="{{user.userID}}">{{user.firstName + ' ' + user.lastName}}</option>
+                        </select>
+                        </div>
+                     
+                    </div>
+                    <div class="col-lg-6">
+                        <label >Serial Number</label>
+                        <div class="form-input">
+                            <i class="fa fa-barcode icon"></i>
+                            <input type="number" formControlName='serialNumber' placeholder="Serial Number"
+                            class="mt-2 rounded-pill form-control">
+                        </div>
+                        </div>
+                    </div>
+                  
+
+                      <div class="device-information">
+                          <h3 class=" mt-2 mb-4">Device Information</h3>
+                      </div>
+                      
+
+                      <div class="row mt-3">
+                          <div class="col-md-4">
+                              <select class="form-select rounded-pill form-select-md mb-3"
+                                  aria-label=".form-select-lg example" formControlName="type" (change)="onSelectType($event)">
+                                  <optgroup label="Select Device Type">
+                                    <option *ngFor="let type of types" value="{{ type.id }}">{{ type.id }}</option>
+                                  </optgroup>
+                              </select>
+                          </div>
+                          <div class="col-md-4">
+                              <select class="form-select rounded-pill form-select-md mb-3"
+                                  aria-label=".form-select-lg example" formControlName="brand" (change)="onSelectBrand($event)">
+                                  
+                                  <optgroup label="{{ brands[0].id }}">
+                                      <option *ngFor="let brand of brands[0].items" value="{{ brand.id }}">{{ brand.id }}</option>
+                                  </optgroup>
+                              </select>
+                          </div>
+                          <div class="col-md-4">
+                              <select class="form-select rounded-pill form-select-md mb-3"
+                                  aria-label=".form-select-lg example" formControlName="model">
+                                  
+                                  <optgroup label=" {{models[0].id}} ">
+                                      <option *ngFor="let model of models[0].items" value="{{ model.label }}">{{ model.label }}</option>
+                                  </optgroup>
+                              </select>
+                          </div>
+                          <div class="col-md-4">
+                            <select class="form-select rounded-pill form-select-md mb-3"
+                                aria-label=".form-select-lg example" formControlName="color">
+                                    <optgroup label="Select Color">
+                                    <option *ngFor="let color of Color" value="{{color.name}}">{{color.name}}</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <select class="form-select rounded-pill form-select-md mb-3"
+                                aria-label=".form-select-lg example" formControlName="RAM">
+                                <optgroup label="Select RAM">
+                                    <option *ngFor="let ram of RAM" value="{{ram.value}}">{{ram.name}}</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <select class="form-select rounded-pill form-select-md mb-3"
+                                aria-label=".form-select-lg example" formControlName="ROM">
+                                
+                                <optgroup label="Select ROM">
+                                    <option *ngFor="let rom of ROM" value="{{rom.value}}">{{rom.name}}</option>
+                                    </optgroup>
+                            </select>
+                        </div>  
+
+                      </div>
+            
+                      <div *ngIf="reportAddForm.get('serialNumber')?.errors && reportAddForm.get('serialNumber')?.touched"
+                          class="ms-2 mt-2">
+                          <p class="text-danger"
+                              *ngIf="reportAddForm.get('serialNumber')?.errors?.['required']"><i
+                                  class="fas text-warning fa-exclamation-triangle me-2"></i> National-ID
+                              is
+                              Required
+                          </p>
+                      </div>
+                  </div>
+                  <h3 class="mb-4 mt-5">Fractions</h3>
+                  <div class="row ms-2">
+                      <label class="col-lg-2"> Front Crach </label>
+                      <div class="col-lg-3 mt-2">
+                          <label for="frontCrachTop">
+                          <input class="input-hidden" type="checkbox" formControlName="frontCrach_top" id="frontCrachTop">
+                              <span class="toggle-token"> Top</span>
+                          </label>
+                      </div>
+                      <div class="col-lg-3 mt-2">
+                        <label for="frontCrachCenter">
+                        <input class="input-hidden" type="checkbox" formControlName="frontCrach_center" id="frontCrachCenter">
+                            <span class="toggle-token"> Center</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-3 mt-2">
+                        <label for="frontCrachBottom">
+                        <input class="input-hidden" type="checkbox" formControlName="frontCrach_bottom" id="frontCrachBottom">
+                            <span class="toggle-token"> Bottom</span>
+                        </label>
+                      </div>
+                  </div>
+                  <div class="row ms-2 mt-4">
+                    <label class="col-lg-2"> Back Crach </label>
+                    <div class="col-lg-3 mt-2">
+                        <label for="backCrachTop">
+                        <input class="input-hidden" type="checkbox" formControlName="backCrach_top" id="backCrachTop">
+                            <span class="toggle-token"> Top</span>
+                        </label>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                      <label for="backCrachCenter">
+                      <input class="input-hidden" type="checkbox" formControlName="backCrach_center" id="backCrachCenter">
+                          <span class="toggle-token"> Center</span>
+                      </label>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                      <label for="backCrachBottom">
+                      <input class="input-hidden" type="checkbox" formControlName="backCrach_bottom" id="backCrachBottom">
+                          <span class="toggle-token">Bottom</span>
+                      </label>
+                    </div>
+                </div>
+
+                <div class="mt-4 mb-3">
+                    <div class="form-group">
+                      <label class="form-label" for="customFile">Upload photo</label>
+                      <div class="form-input">
+                        <i class="fa fa-camera icon"></i>
+                        <input type="file" class="mt-2 rounded-pill form-control" id="customFile" (change)="onChange($event)" />
+                      </div>
+                        
+                        <div class="invalid-feedback">Please upload your photo!</div>
+                      </div>
+                  </div>
+
+                  <div class="form-floating mt-4">
+                      <label for="additional_info">Additional Info</label>
+                      <input class="form-control" placeholder="Leave a comment here" id="additional_info"
+                          style="height: 100px" formControlName="additional_info">
+                  </div>
+                  
+                  <div class="d-flex justify-content-center mt-4">
+                  <button type="submit" class="btn btn-default rounded-pill btn d-inline">Submit</button>
+                  <button class="btn btn-danger rounded-pill btn d-inline" type="button" (click)="cancel()">Cancel</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,310 @@
+<link rel="stylesheet" 
+href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a (click)="cancel()" class="x">X</a>
+<!-- Page content -->
+<div class="container-fluid form-shadow">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 class="mb-0" style="display: inline;">Add New User</h3>
+        </div>
+        <div class="card-body mt-0">
+          <div class="row icon-examples">
+            <form [formGroup]='userAddForm' (ngSubmit)='addUser()' class="mt-3">
+              <h3 class="mb-4">Personal Information</h3>
+              <div class="row">
+                  <div class="col-lg-6 ">
+
+                    <div class="form-group ">
+                      <label class=" ms-4" for="firstName">First Name</label>
+                      <div class="form-input">
+                      <span class="icon"><i class="fa fa-user icon"></i></span>
+                      <input type="text" 
+                        [ngClass]="{'is-invalid': userAddForm.get('firstName')?.errors
+                          && userAddForm.get('firstName')?.touched}"
+                        class=" mt-2 rounded-pill form-control"
+                        formControlName="firstName"
+                        placeholder="Enter your first Name!">
+                      </div>
+                      <div class="invalid-feedback">Please enter your first Name!</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group ">
+                        <label class=" ms-4" for="lastName">Last Name</label>
+                        <div class="form-input">
+                        <span class="icon"><i class="fa fa-user icon"></i></span>
+                        <input type="text" 
+                          [ngClass]="{'is-invalid': userAddForm.get('lastName')?.errors
+                            && userAddForm.get('lastName')?.touched}"
+                          class="input-field mt-2 rounded-pill form-control"
+                          formControlName="lastName"
+                          placeholder="Enter your last name!">
+                        </div>
+                        <div class="invalid-feedback">Please enter your last name!</div>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-lg-6 mb-3 ">
+                  <div class="input-icons form-group">
+                      <label class="ms-4 input-field" for="email">E-Mail Address</label>
+                     <div class="form-input">
+                      <i class="fa fa-envelope icon"></i>
+                      <input type="text"
+                        [ngClass]="{'is-invalid': userAddForm.get('email')?.errors
+                          && userAddForm.get('email')?.touched}"
+                        class="mt-2 rounded-pill form-control"
+                        formControlName="email"
+                        placeholder="Enter your E-Mail Address!">
+                     </div>
+                      
+                        
+                        <div class="invalid-feedback">Please enter your E-Mail Address!</div>
+                    </div>
+                </div>
+              <div class="col-lg-6 mb-3">
+                <div class="form-group">
+                    <label class="ms-4" for="national_id">National ID</label>
+                    <div class="form-input">
+                      <i class="fa fa-id-card icon"></i>
+                      <input type="text"
+                      [ngClass]="{'is-invalid': userAddForm.get('nationalID')?.errors
+                        && userAddForm.get('nationalID')?.touched}"
+                      class="mt-2 rounded-pill form-control"
+                      formControlName="national_id"
+                      placeholder="Enter your national ID!">
+                    
+                    </div>
+                    <div class="invalid-feedback">National ID is required!</div>
+                  </div>
+              </div>
+      
+              </div>
+
+
+
+              <div >
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label class="form-label" for="avatar">Upload photo</label>
+                    <div class="form-input">
+                      <i class="fa fa-camera icon"></i>
+                      <input type="file" class="mt-2 rounded-pill form-control" id="customFile" (change)="onChange($event)" />
+                    </div>
+                      
+                      <div class="invalid-feedback">Please upload your photo!</div>
+                    </div>
+                </div>
+            </div>
+              <h3 class="mt-0 mb-4">Contact information Information</h3>
+            
+              
+          <div class="row">
+            <div class="mb-3 col-lg-6">
+              <div class="form-group">
+                  <label class="ms-4" for="password">Password</label>
+                  <div class="form-input">
+                    <i class="fa fa-lock icon"></i>
+                    <input type="password"
+                    [ngClass]="{'is-invalid': userAddForm.get('password')?.errors
+                      && userAddForm.get('password')?.touched}"
+                    class="mt-2 rounded-pill form-control"
+                    formControlName="password"
+                    placeholder="Password">
+                    
+                  </div>
+                  <div class="invalid-feedback"
+                      *ngIf="userAddForm.get('password')?.hasError('required') 
+                        && userAddForm.get('password')?.touched">
+                        Password is required
+                    </div>
+                    <div class="invalid-feedback" 
+                    *ngIf="userAddForm.get('password')?.hasError('minlength') 
+                      && userAddForm.get('password')?.touched">
+                      Password must be at least 4 characters
+                  </div>
+                  <div class="invalid-feedback" 
+                  *ngIf="userAddForm.get('password')?.hasError('maxlength') 
+                    && userAddForm.get('password')?.touched">
+                    Password cannot exceed 8 characters
+                </div>
+                </div>
+            </div>
+            <div class="mb-3 col-lg-6">
+              <div class="form-group">
+                  <label class="ms-4" for="confirmPassword">Confirm Password</label>
+                  <div class="form-input">
+                    <i class="fa fa-lock icon"></i>
+                    <input 
+                    [ngClass]="{'is-invalid': userAddForm.get('confirmPassword')?.errors 
+                      && userAddForm.get('confirmPassword')?.touched
+                      || userAddForm.get('confirmPassword')?.touched
+                      && userAddForm.hasError('mismatch')}"
+                    type="password" 
+                    class="mt-2 rounded-pill form-control"
+                    formControlName="confirmPassword"
+                    placeholder="Confirm Password">
+                  </div>
+               
+                    <div class="invalid-feedback" 
+                    *ngIf="userAddForm.get('confirmPassword')?.hasError('required') 
+                      && userAddForm.get('confirmPassword')?.touched">
+                      Confirming Password is required!
+                  </div>
+                  <div class="invalid-feedback" 
+                  *ngIf="userAddForm.hasError('mismatch') 
+                    && userAddForm.get('confirmPassword')?.touched">
+                    Passwords must match!
+                </div>
+                </div>
+            </div>
+        </div>
+          
+              <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="mobile_1">Mobile Number</label>
+                        <div class="form-input">
+                          <i class="fa fa-phone icon"></i>
+                          <input type="text" 
+                          [ngClass]="{'is-invalid': userAddForm.get('mobile_1')?.errors
+                            && userAddForm.get('mobile_1')?.touched}"
+                          class="mt-2 rounded-pill form-control"
+                          formControlName="mobile_1"
+                          placeholder="Enter your Mobile Number!">
+                        
+                        </div>
+                        <div class="invalid-feedback">Please enter your Mobile Number!</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="form-group">
+                        <label class="ms-4" for="mobile_2">Secondary Mobile Number</label>
+                        <div class="form-input">
+                          <i class="fa fa-phone icon"></i>
+                        <input type="text" 
+                          [ngClass]="{'is-invalid': userAddForm.get('mobile_2')?.errors
+                            && userAddForm.get('mobile_2')?.touched}"
+                          class="mt-2 rounded-pill form-control"
+                          formControlName="mobile_2"
+                          placeholder="Enter an alternative Mobile Number!">
+                        </div>
+                        <div class="invalid-feedback">Please enter an alternative Mobile Number!</div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                <!-- <div class="col-lg-4 mb-3">
+                  <div class="form-group">
+                      <label class="ms-4" for="government">government</label>
+                      <div class="form-input">
+                        <i class="fas fa-city icon"></i>
+                        <input type="text" 
+                        [ngClass]="{'is-invalid': userAddForm.get('government')?.errors
+                          && userAddForm.get('government')?.touched}"
+                        class="mt-2 rounded-pill form-control"
+                        formControlName="government"
+                        placeholder="Enter an alternative government!">
+                      
+                      </div>
+                      <div class="invalid-feedback">Please enter a government!</div>
+                    </div>
+                </div> -->
+                <div class="col-md-4 mt-3">
+                  <select class="form-select rounded-pill form-select-md "
+                      aria-label=".form-select-lg example" formControlName="government" (change)="onSelectGovernment($event)">
+                      <optgroup label="Select Government">
+                        <option *ngFor="let government of governments" value="{{government.id}}">{{government.id}}</option>
+                      </optgroup>
+                  </select>
+              </div>
+              <div class="col-md-4 mt-3">
+                <select class="form-select rounded-pill form-select-md "
+                    aria-label=".form-select-lg example" formControlName="city">
+                    <optgroup label="Select City">
+                      <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+                    </optgroup>
+                </select>
+            </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                      <!-- <label class="ms-4" for="street">Street Address</label> -->
+                      <div class="form-input">
+                        <i class="fa fa-road icon"></i>
+                        <input type="text" 
+                        [ngClass]="{'is-invalid': userAddForm.get('street')?.errors
+                          && userAddForm.get('street')?.touched}"
+                        class=" rounded-pill form-control"
+                        formControlName="street"
+                        placeholder="Enter your street address!">
+                     
+                      </div>
+                      <div class="invalid-feedback">Please enter your street address!</div>
+                    </div>
+                </div>
+            </div>
+            <label for="floatingTextarea2">Address Note</label>
+            <div class="form-floating mb-4 mt-4">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                  style="height: 100px" formControlName="addressNotes"></textarea>
+                  <label for="floatingTextarea2">enter your address</label>
+          </div>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <div class="form-group">
+                    <label class="ms-4" for="whatsapp">WhatsApp</label>
+                    <div class="form-input">
+                      <i class="fa fa-whatsapp icon"></i>
+                      <input type="text" 
+                      [ngClass]="{'is-invalid': userAddForm.get('whatsapp')?.errors
+                        && userAddForm.get('whatsapp')?.touched}"
+                      class="mt-2 rounded-pill form-control" 
+                      formControlName="whatsapp"
+                      placeholder="Enter your WhatsApp!">
+                    
+                    </div>
+                    <div class="invalid-feedback">Please enter your WhatsApp!</div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <div class="form-group">
+                      <label class="ms-4" for="facebookLink">Facebook</label>
+                      <div class="form-input">
+                        <i class="fa fa-facebook icon"></i>
+                        <input type="text" 
+                        [ngClass]="{'is-invalid': userAddForm.get('facebookLink')?.errors
+                          && userAddForm.get('facebookLink')?.touched}"
+                        class="mt-2 rounded-pill form-control"
+                        formControlName="facebookLink"
+                        placeholder="Enter your Facebook!">
+                      
+                      </div>
+                      <div class="invalid-feedback">Please enter your Facebook!</div>
+                    </div>
+                </div>
+            </div>
+         
+
+
+
+              <div class="d-flex justify-content-center mt-4">
+              <button  type="submit" class="btn btn-default rounded-pill btn d-inline">Add User</button>
+              <button class="btn btn-danger rounded-pill btn d-inline" type="button" (click)="cancel()">Cancel</button>
+              </div>
+              <div class="clearfix"></div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a15890c302.js" crossorigin="anonymous"></script>

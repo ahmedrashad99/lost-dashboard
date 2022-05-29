@@ -1,0 +1,16 @@
+.bg-grad {
+    background: linear-gradient(-135deg, #d43396, #6541c1);
+}
+
+.bg-shade {
+    position: fixed;
+    box-sizing: border-box;
+    inset: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    overflow: auto;
+}

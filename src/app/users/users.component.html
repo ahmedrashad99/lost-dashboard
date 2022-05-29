@@ -1,0 +1,76 @@
+<div>
+<!-- Page content -->
+<div class="container-fluid mt--8 usersWidth">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <h3 class="mb-0 d-inline">Users</h3>
+          <!-- <div *ngIf="!loggedIn()"> -->
+            
+            <button id="alertBtn" class="btn btn-default" style="float: right;" (click)="addUserToggle()">Add User<i></i></button>
+            <!-- </div> -->
+        </div>
+        <div class="card-body">
+          <div class="row icon-examples">
+            <div class="fresh-table full-color-orange">
+              <table id="fresh-table" class="table">
+                <thead>
+                  <th data-field="id">#ID</th>
+                  <th data-field="Photo">User Photo</th>
+                  <th data-field="fullName">Full Name</th>
+                  <th data-field="mobileNumber">Mobile Number</th>
+                  <th data-field="email">E-mail Address</th>
+                  <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents" class="text-center">Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+                    <td>{{user.userID}}</td>
+                    <td><img class="table-img" src="{{user.avatar}}"></td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.ContactInfo.mobile_1}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                      <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn edit-btn" (click)="editUserToggle(user.userID)"><span><i class="fas fa-edit"></i></span></button>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <button type="button" class="btn delete-btn" (click)="deleteUser(user.userID)"><span><i class="fas fa-trash"></i></span></button>
+                      </div>
+                    </div>
+                  </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngIf="addUserMode" class="bg-shade">
+<div class="container">
+  <div class="row justify-content-center">
+      <app-user-add (cancelAddUser)="cancelAddUser($event)"></app-user-add>
+  </div>
+</div>
+</div>
+<div *ngIf="editUserMode" class="bg-shade">
+  <div class="container">
+    <div class="row justify-content-center">
+        <app-user-edit (cancelEditUser)="cancelEditUser($event)" [userIdOfEdit]="userIdForEdit"></app-user-edit>
+    </div>
+  </div>
+  </div>
+<!-- <div class="col-lg-3 col-md-6">
+              <a placement="top-center" class="btn-icon-clipboard">
+                <div>
+                  <i class="fas fa-user"></i>
+                  <span>UseruserName</span>
+                </div>
+              </a>
+            </div> -->
