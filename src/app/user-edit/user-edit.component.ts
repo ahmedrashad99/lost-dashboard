@@ -17,8 +17,8 @@ export class UserEditComponent implements OnInit {
   @Output() cancelEditUser = new EventEmitter();
   @ViewChild("userEditForm") userEditForm: NgForm;
   user: User;
-  governments: any[] = [{ id:"Select Government", items: [{id: ""}] }];
-  cities: any[] = [{ id:"Select City", items: [{id: ""}] }];
+  governments: any[];
+  cities: any[];
 
   constructor(private userService: UserService, private router: Router, private fb: FormBuilder, private alertify: AlertifyService, private route: ActivatedRoute) { }
 
@@ -27,7 +27,10 @@ export class UserEditComponent implements OnInit {
     //   this.user = data['user'];
     // })
     this.governmentInit();
-    this.userService.getUser(this.userIdOfEdit).subscribe((data: any) => {this.user = data.Data; }, error => {this.alertify.error(error), () => {};});
+    this.userService.getUser(this.userIdOfEdit).subscribe((data: any) => {
+      this.user = data.Data;
+      this.cities = this.city().filter(e=> e.id == data.Data.ContactInfo.government);
+     }, error => {this.alertify.error(error), () => {};});
     
     
   }
@@ -62,16 +65,16 @@ export class UserEditComponent implements OnInit {
         this.alertify.success(response.msg);
         if(response.status) {
           this.alertify.success(response.msg);
-          // window.location.reload();
+          window.location.reload();
         }
         else {
           this.alertify.error(response.msg);
         }
-        // this.userEditForm.reset(this.user);
+        this.userEditForm.reset(this.user);
       }, error => {
         this.alertify.error('Problem Updating Product!');
       }, () => {
-        // window.location.reload();
+        window.location.reload();
       }
       );
   }
@@ -87,6 +90,8 @@ export class UserEditComponent implements OnInit {
     this.cities = this.city()
     .filter(e=> 
      e.id == government.target.value);
+    
+     this.user.ContactInfo.city = this.cities[0].name;
   }
 
   Government() {

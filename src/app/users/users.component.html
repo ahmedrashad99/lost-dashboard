@@ -21,17 +21,17 @@
                   <th data-field="Photo">User Photo</th>
                   <th data-field="fullName">Full Name</th>
                   <th data-field="mobileNumber">Mobile Number</th>
-                  <th data-field="email">E-mail Address</th>
+                  <th data-field="email"  class="text-center">E-mail Address</th>
                   <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents" class="text-center">Actions</th>
                 </thead>
                 <tbody>
                   <tr *ngFor="let user of users">
-                    <td>{{user.userID}}</td>
+                    <td><p class="mt-3">{{user.userID}}</p></td>
                     <td><img class="table-img" src="{{user.avatar}}"></td>
-                    <td>{{user.firstName}}</td>
-                    <td>{{user.ContactInfo.mobile_1}}</td>
-                    <td>{{user.email}}</td>
-                    <td>
+                    <td><p class="mt-3">{{user.firstName + ' ' +user.lastName}}</p></td> 
+                    <td><p class="mt-3"><a href="tel:{{user.ContactInfo.mobile_1}}">{{user.ContactInfo.mobile_1}}</a></p></td>
+                    <td  class="text-center"><p class="mt-3"> <a href = "mailto: {{user.email}}">{{user.email}}</a></p></td>
+                    <td class="text-center">
                       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                       <div class="btn-group mr-2" role="group" aria-label="First group">
                         <button type="button" class="btn edit-btn" (click)="editUserToggle(user.userID)"><span><i class="fas fa-edit"></i></span></button>

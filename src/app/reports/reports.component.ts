@@ -1,3 +1,4 @@
+import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Report } from '../Models/report';
 import { AlertifyService } from '../Services/alertify.service';
@@ -33,6 +34,17 @@ export class ReportsComponent implements OnInit {
   editReportToggle(reportIdForEdit: number) {
     this.reportIdForEdit = reportIdForEdit;
     this.editReportMode = true;
+  }
+  deleteReport(reportID: number) {
+    this.reportService.deleteReport(reportID).subscribe((response:any) => {
+      if(response.status) {
+        this.alertify.success("Report successfully deleted!");
+        window.location.reload;
+      }
+      else {
+        this.alertify.error(response.msg); 
+      }
+    })
   }
 
   cancelAddReport(addReportMode: boolean) {

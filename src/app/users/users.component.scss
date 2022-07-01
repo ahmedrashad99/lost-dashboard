@@ -14,3 +14,12 @@
     white-space: pre-wrap;
     overflow: auto;
 }
+.fresh-table {
+    overflow-y: auto;
+}
+
+@media(max-width: 1806px) {
+    .btn-toolbar {
+        display: inline;
+    }
+}

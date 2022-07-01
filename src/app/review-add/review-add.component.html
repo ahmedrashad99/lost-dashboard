@@ -19,7 +19,7 @@
                   <label class="mb-3" >Select Store Owner</label>
                     <select class="form-select rounded-pill form-select-md mb-3"
                         aria-label=".form-select-lg example" formControlName="ownerID">
-                        <option value='x'>All Owners</option>
+                        <option value="">All Owners</option>
                         <option *ngFor="let Owner of storeOwners" value="{{ Owner.ownerID }}">{{ Owner.firstName + ' ' + Owner.lastName }}</option>
                     </select>
                   </div>
@@ -27,7 +27,7 @@
                       <label class="mb-3">Select Report</label>
                       <select class="form-select rounded-pill form-select-md mb-3"
                           aria-label=".form-select-lg example" formControlName="reportID">
-                          <option value="x">All Devices</option>
+                          <option value="">All Devices</option>
                           <option *ngFor="let Report of reports" value="{{ Report.reportID }}">{{ Report.serialNumber }}</option>
                       </select>
                   </div>

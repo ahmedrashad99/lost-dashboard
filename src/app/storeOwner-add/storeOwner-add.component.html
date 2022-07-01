@@ -161,12 +161,11 @@
                       <div class="form-group">
                           <label class="ms-4" for="government">Government</label>
                           <div class="form-input">
-                            <i class="fa fa-road icon"></i>
-                            <select class="form-select rounded-pill mt-2 form-select-md "
+                            
+                            <select class="form-select rounded-pill mt-2 form-select-md " style="font-weight: bold;"
                           aria-label=".form-select-lg example" formControlName="government" (change)="onSelectGovernment($event)">
-                          <optgroup label="Select Government">
+                            <option value="">Select Government</option>
                             <option *ngFor="let government of governments" value="{{government.id}}">{{government.id}}</option>
-                          </optgroup>
                       </select>
                         </div>
                     </div>
@@ -176,12 +175,11 @@
                     <div class="form-group">
                         <label class="ms-4" for="city">City</label>
                         <div class="form-input">
-                          <i class="fa fa-road icon"></i>
-                          <select class="form-select rounded-pill mt-2 form-select-md "
+                          
+                          <select class="form-select rounded-pill mt-2 form-select-md " style="font-weight: bold;"
                         aria-label=".form-select-lg example" formControlName="city">
-                        <optgroup label="Select City">
+                          <option value="">Select City</option>
                           <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
-                        </optgroup>
                     </select>
                       </div>
                   </div>

@@ -19386,3 +19386,8 @@ border-radius: 0;
   height: 60px;
   border: 50%;
 }
+@media(max-height:670px) {
+  .logout-btn {
+    position: relative !important;
+  }
+}

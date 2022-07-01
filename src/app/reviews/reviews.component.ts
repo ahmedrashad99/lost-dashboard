@@ -31,7 +31,15 @@ export class ReviewsComponent implements OnInit {
   }
 
   deleteReview(id: number) {
-    this.reviewService.deleteReview(id).subscribe((response:any) => { this.alertify.success(response.msg); });
+    this.reviewService.deleteReview(id).subscribe((response:any) => { 
+      if(response.status){
+        this.alertify.success(response.msg);
+        window.location.reload;
+      }
+      else {
+        this.alertify.error(response.msg);
+      }
+     });
   }
 
   cancelAddReview(addReviewMode: boolean) {

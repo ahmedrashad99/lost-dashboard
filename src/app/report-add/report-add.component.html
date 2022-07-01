@@ -18,14 +18,14 @@
                         <div class="form-input">
                         <select class="form-select rounded-pill form-select-md mt-2 "
                             aria-label=".form-select-lg example" formControlName="userID">
-                            <option selected>All Users</option>
+                            <option value="">All Users</option>
                             <option *ngFor="let user of users" value="{{user.userID}}">{{user.firstName + ' ' + user.lastName}}</option>
                         </select>
                         </div>
                      
                     </div>
                     <div class="col-lg-6">
-                        <label >Serial Number</label>
+                        <label>Serial Number</label>
                         <div class="form-input">
                             <i class="fa fa-barcode icon"></i>
                             <input type="number" formControlName='serialNumber' placeholder="Serial Number"
@@ -44,9 +44,10 @@
                           <div class="col-md-4">
                               <select class="form-select rounded-pill form-select-md mb-3"
                                   aria-label=".form-select-lg example" formControlName="type" (change)="onSelectType($event)">
-                                  <optgroup label="Select Device Type">
+                                  
+                                    <option value="">Select Type</option>
                                     <option *ngFor="let type of types" value="{{ type.id }}">{{ type.id }}</option>
-                                  </optgroup>
+                                  
                               </select>
                           </div>
                           <div class="col-md-4">
@@ -54,6 +55,7 @@
                                   aria-label=".form-select-lg example" formControlName="brand" (change)="onSelectBrand($event)">
                                   
                                   <optgroup label="{{ brands[0].id }}">
+                                      <option value="">Select Brand</option>
                                       <option *ngFor="let brand of brands[0].items" value="{{ brand.id }}">{{ brand.id }}</option>
                                   </optgroup>
                               </select>
@@ -63,6 +65,7 @@
                                   aria-label=".form-select-lg example" formControlName="model">
                                   
                                   <optgroup label=" {{models[0].id}} ">
+                                      <option value="">Select Model</option>
                                       <option *ngFor="let model of models[0].items" value="{{ model.label }}">{{ model.label }}</option>
                                   </optgroup>
                               </select>
@@ -71,7 +74,8 @@
                             <select class="form-select rounded-pill form-select-md mb-3"
                                 aria-label=".form-select-lg example" formControlName="color">
                                     <optgroup label="Select Color">
-                                    <option *ngFor="let color of Color" value="{{color.name}}">{{color.name}}</option>
+                                    <option value="">Select Color</option>
+                                    <option *ngFor="let color of colors" value="{{color.name}}">{{color.name}}</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -80,6 +84,7 @@
                             <select class="form-select rounded-pill form-select-md mb-3"
                                 aria-label=".form-select-lg example" formControlName="RAM">
                                 <optgroup label="Select RAM">
+                                    <option value="">Select RAM</option>
                                     <option *ngFor="let ram of RAM" value="{{ram.value}}">{{ram.name}}</option>
                                 </optgroup>
                             </select>
@@ -90,6 +95,7 @@
                                 aria-label=".form-select-lg example" formControlName="ROM">
                                 
                                 <optgroup label="Select ROM">
+                                    <option value="">Select ROM</option>
                                     <option *ngFor="let rom of ROM" value="{{rom.value}}">{{rom.name}}</option>
                                     </optgroup>
                             </select>

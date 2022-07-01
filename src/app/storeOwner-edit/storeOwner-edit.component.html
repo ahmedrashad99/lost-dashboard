@@ -183,7 +183,7 @@ href=
                 <div class="col-md-4 mt-3">
                   <select class="form-select rounded-pill form-select-md "
                       aria-label=".form-select-lg example" [(ngModel)]="storeOwner.Store.government"
-                      name="storeOwner.Store" (change)="onSelectGovernment($event)">
+                      name="Store.government" (change)="onSelectGovernment($event)">
                       <optgroup label="Select Government">
                         <option *ngFor="let government of governments" value="{{government.id}}">{{government.id}}</option>
                       </optgroup>
@@ -192,7 +192,7 @@ href=
               <div class="col-md-4 mt-3">
                 <select class="form-select rounded-pill form-select-md "
                     aria-label=".form-select-lg example" [(ngModel)]="storeOwner.Store.city"
-                    name="storeOwner.Store">
+                    name="Store.city">
                     <optgroup label="Select City">
                       <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
                     </optgroup>

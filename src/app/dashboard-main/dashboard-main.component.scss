@@ -129,7 +129,7 @@ p {
   
 
   .btn-group-left {
-      margin-left: 7.8rem;
+      margin-left: 10rem;
   }
 
 
@@ -303,4 +303,23 @@ p {
 
 .counter::after {
     content: counter(number);
+}
+
+@media (max-width:768px){
+    .usersWidth {
+        width: auto;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: -8rem !important;
+    }
+  }
+@media (min-width:992px){
+    .advisor-grid-lg {
+        flex: 0 0 50%;
+    }
+}
+@media (min-width:576px) {
+    .advisor-grid-sm {
+        flex: 0 0 25%;
+    }
 }

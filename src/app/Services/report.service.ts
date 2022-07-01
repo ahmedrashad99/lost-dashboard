@@ -46,7 +46,7 @@ createReport(uploadData: FormData) {
 }
 
 deleteReport(id: number) {
-  return this.http.delete(this.baseUrl + 'Reports/delete/' + id);
+  return this.http.delete(this.baseUrl + 'reports/delete/' + id, this.requestOptions);
 }
 
 }

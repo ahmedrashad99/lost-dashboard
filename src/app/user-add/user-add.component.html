@@ -218,19 +218,17 @@ href=
                     </div>
                 </div> -->
                 <div class="col-md-4 mt-3">
-                  <select class="form-select rounded-pill form-select-md "
+                  <select class="form-select rounded-pill form-select-md " style="font-weight: bold;"
                       aria-label=".form-select-lg example" formControlName="government" (change)="onSelectGovernment($event)">
-                      <optgroup label="Select Government">
+                        <option value="">Select Government</option>
                         <option *ngFor="let government of governments" value="{{government.id}}">{{government.id}}</option>
-                      </optgroup>
                   </select>
               </div>
               <div class="col-md-4 mt-3">
-                <select class="form-select rounded-pill form-select-md "
+                <select class="form-select rounded-pill form-select-md " style="font-weight: bold;"
                     aria-label=".form-select-lg example" formControlName="city">
-                    <optgroup label="Select City">
+                      <option value="">Select City</option>
                       <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
-                    </optgroup>
                 </select>
             </div>
                 <div class="col-md-4">
