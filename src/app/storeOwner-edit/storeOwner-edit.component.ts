@@ -65,7 +65,7 @@ export class StoreOwnerEditComponent implements OnInit {
       this.storeOwnerService.updateStoreOwner(this.storeOwner.ownerID, uploadData).subscribe((response: any) => {
         if(response.status){
           this.alertify.success(response.msg);
-          this.storeOwnerEditForm.reset(this.storeOwner);
+          window.location.reload();
         }
         else {
           this.alertify.error(response.msg);

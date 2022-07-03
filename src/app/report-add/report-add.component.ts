@@ -24,6 +24,7 @@ export class ReportAddComponent implements OnInit {
   colors: any[];
   RAM: any[];
   ROM: any[];
+  convertedFile: any;
 
   constructor(private reportService: ReportService, private router: Router, private fb: FormBuilder, private alertify: AlertifyService, 
               private userService: UserService) { }
@@ -35,6 +36,7 @@ export class ReportAddComponent implements OnInit {
     this.colors = this.alertify.Color();
     this.RAM = this.alertify.RAM();
     this.ROM = this.alertify.ROM();
+    
 
     this.userService.getUsers().subscribe((data:any) => { 
       this.users = data.Data;
@@ -64,10 +66,10 @@ export class ReportAddComponent implements OnInit {
       devicePicture: ['', Validators.required]
     });
   }
-  onChange(event:any){
-    const selectedFile = event.target.files[0];
-    this.reportAddForm.get('devicePicture')?.setValue(selectedFile);
-  }
+  // onChange(event:any){
+  //   const selectedFile = event.target.files[0];
+  //   this.reportAddForm.get('devicePicture')?.setValue(selectedFile);
+  // }
 
   addReport() {
       const uploadData = new FormData();
@@ -117,7 +119,7 @@ export class ReportAddComponent implements OnInit {
 
   onSelectType(brand: any){
     this.brands = this.alertify.Brand()
-    .filter(e=> 
+    .filter(e=>
      e.id == brand.target.value);
      console.log(this.brands);
   }
@@ -127,9 +129,27 @@ export class ReportAddComponent implements OnInit {
      e.id == model.target.value);
      console.log(this.models);
   }
-  
-
-
-  
-
+  onSelectModel(photo: any){
+    let currentModel = this.models[0].items.filter((p: { id: any; }) => p.id == photo.target.value);;
+    let devicePhotoUrl = '../../assets/img/devices/' + this.reportAddForm.get('type')?.value + '/' 
+    + this.reportAddForm.get('brand')?.value + '/' + currentModel[0].img;
+    // this.devicePhoto.src = devicePhotoUrl;
+    // document.getElementById('imageTag')?.appendChild(this.devicePhoto);
+    fetch(devicePhotoUrl)
+            .then((e) => {
+              return e.blob();
+            })
+            .then((blob) => {
+              let b: any = blob;
+              b.lastModifiedDate = new Date();
+              b.name = currentModel[0].img;
+              this.convertedFile = new File([b], b.name);
+              this.devicePicture();
+            });   
+    }
+    devicePicture(){
+      const selectedFile = this.convertedFile;
+      this.reportAddForm.get('devicePicture')?.setValue(selectedFile);
+      console.log(selectedFile);
+    }
 }

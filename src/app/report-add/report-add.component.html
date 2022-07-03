@@ -46,7 +46,7 @@
                                   aria-label=".form-select-lg example" formControlName="type" (change)="onSelectType($event)">
                                   
                                     <option value="">Select Type</option>
-                                    <option *ngFor="let type of types" value="{{ type.id }}">{{ type.id }}</option>
+                                    <option *ngFor="let type of types" value="{{ type.id }}">{{ type.name }}</option>
                                   
                               </select>
                           </div>
@@ -56,17 +56,17 @@
                                   
                                   <optgroup label="{{ brands[0].id }}">
                                       <option value="">Select Brand</option>
-                                      <option *ngFor="let brand of brands[0].items" value="{{ brand.id }}">{{ brand.id }}</option>
+                                      <option *ngFor="let brand of brands[0].items" value="{{ brand.id }}">{{ brand.label }}</option>
                                   </optgroup>
                               </select>
                           </div>
                           <div class="col-md-4">
                               <select class="form-select rounded-pill form-select-md mb-3"
-                                  aria-label=".form-select-lg example" formControlName="model">
+                                  aria-label=".form-select-lg example" formControlName="model" (change)="onSelectModel($event)">
                                   
                                   <optgroup label=" {{models[0].id}} ">
                                       <option value="">Select Model</option>
-                                      <option *ngFor="let model of models[0].items" value="{{ model.label }}">{{ model.label }}</option>
+                                      <option *ngFor="let model of models[0].items" value="{{ model.id }}">{{ model.label }}</option>
                                   </optgroup>
                               </select>
                           </div>
@@ -156,19 +156,6 @@
                       </label>
                     </div>
                 </div>
-
-                <div class="mt-4 mb-3">
-                    <div class="form-group">
-                      <label class="form-label" for="customFile">Upload photo</label>
-                      <div class="form-input">
-                        <i class="fa fa-camera icon"></i>
-                        <input type="file" class="mt-2 rounded-pill form-control" id="customFile" (change)="onChange($event)" />
-                      </div>
-                        
-                        <div class="invalid-feedback">Please upload your photo!</div>
-                      </div>
-                  </div>
-
                   <div class="form-floating mt-4">
                       <label for="additional_info">Additional Info</label>
                       <input class="form-control" placeholder="Leave a comment here" id="additional_info"

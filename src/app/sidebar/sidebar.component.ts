@@ -35,8 +35,8 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  loggedIn() {
-    if(this.authService.loggedIn())
+  validLogin() {
+    if(this.authService.loggedIn() && !this.authService.expiredToken())
     {
       return true;
     }

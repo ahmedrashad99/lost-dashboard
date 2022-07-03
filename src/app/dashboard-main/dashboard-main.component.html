@@ -1,5 +1,5 @@
 <!-- card stats -->
-<div class="custom-container usersWidth">
+<div class="custom-container usersWidth" *ngIf="!editStoreOwnerMode">
   <div class="row">
     <div class="mb-5 mb-xl-0">
       <div class="card dashboard-bg shadow">
@@ -130,7 +130,7 @@
                             <div *ngFor="let storeOwner of storeOwners" class="col-12 advisor-grid-lg advisor-grid-sm">
                               <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
                                 <!-- Team Thumb-->
-                                <div class="advisor_thumb"><img src="{{ storeOwner.avatar }}" alt="" style="height: 315px; width: 315px;">
+                                <div class="advisor_thumb"><img class="thumbnail" src="{{ storeOwner.avatar }}" alt="" style="height: 315px; width: 315px;">
                                   <!-- Social Info-->
                                   <!-- <div class="social-info"><a href="#"><img class="card_img_icon" src="../../assets/img/icon/editing.png"></a><a href="#"><img class="card_img_icon" src="../../assets/img/icon/delete.png"></a></div> -->
                                 </div>
@@ -145,7 +145,7 @@
 
                                   <div class="btn-group-left" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group mr-2" role="group" aria-label="First group">
-                                      <button type="button" class="btn card-btn"><img class="card_icon_btn" src="../../assets/img/icon/editing.png"></button>
+                                      <button type="button" class="btn card-btn" (click)="editStoreOwnerToggle(storeOwner.ownerID)"><img class="card_icon_btn" src="../../assets/img/icon/editing.png"></button>
                                     </div>
                                     <div class="btn-group" role="group">
                                       <button type="button" class="btn card-btn" (click)="deleteStoreOwner(storeOwner.ownerID)"><img class="card_icon_btn" src="../../assets/img/icon/delete.png"></button>
@@ -169,3 +169,10 @@
     </div>
   </div>
   </div>
+  <div *ngIf="editStoreOwnerMode" class="bg-shade">
+    <div class="container">
+      <div class="row justify-content-center">
+          <app-storeOwner-edit (cancelEditStoreOwner)="cancelEditStoreOwner($event)" [storeOwnerIdOfEdit]="storeOwnerIdForEdit"></app-storeOwner-edit>
+      </div>
+    </div>
+    </div>

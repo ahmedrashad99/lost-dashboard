@@ -22,7 +22,15 @@ export class StoreOwnersComponent implements OnInit {
   }
 
   deleteStoreOwner(id: number) {
-    this.storeOwnerService.deleteStoreOwner(id).subscribe(() => { this.alertifyService.success("User Successfully Deleted!") });
+    this.storeOwnerService.deleteStoreOwner(id).subscribe((response:any) => {
+      if(response.status){
+        this.alertifyService.success(response.msg);
+        window.location.reload();
+      } 
+      else{
+        this.alertifyService.error(response.msg);
+      }
+    });
   }
   
   addStoreOwnerToggle() {

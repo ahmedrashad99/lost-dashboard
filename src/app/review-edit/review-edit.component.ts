@@ -26,7 +26,15 @@ export class ReviewEditComponent implements OnInit {
     private alertify: AlertifyService, private storeOwnerService: StoreOwnerService, private reportService: ReportService) { }
 
   ngOnInit() {
-    this.storeOwnerService.getStoreOwners().subscribe((data:any) => { this.storeOwners = data.Data; this.alertify.success(data.msg); }, 
+    this.storeOwnerService.getStoreOwners().subscribe((data:any) => { 
+    if(data.status){
+      this.storeOwners = data.Data; 
+      this.alertify.success(data.msg);
+    }
+    else {
+      this.alertify.error(data.msg);
+    }
+    }, 
     error => { this.alertify.error('error'); () => {  }})
     this.reportService.getReports().subscribe((data:any) => { this.reports = data.Data; this.alertify.success(data.msg); },
       error => { this.alertify.error('error'); })
@@ -51,16 +59,15 @@ export class ReviewEditComponent implements OnInit {
     
       this.reviewService.editReview(this.review.reviewID, uploadedData).subscribe((response:any) => {
         if(response.status) {
-          this.alertify.success("Editing a review was successful!");
+          this.alertify.success(response.msg);
+          window.location.reload();
         }
         else {
           this.alertify.error(response.msg);
         }
       }, error => {
         this.alertify.error('Editing a review Failed!');
-      }, () => {
-        window.location.reload();
-      });
+      }, () => {  });
     
   }
 

@@ -34,7 +34,7 @@ export class ReviewsComponent implements OnInit {
     this.reviewService.deleteReview(id).subscribe((response:any) => { 
       if(response.status){
         this.alertify.success(response.msg);
-        window.location.reload;
+        window.location.reload();
       }
       else {
         this.alertify.error(response.msg);

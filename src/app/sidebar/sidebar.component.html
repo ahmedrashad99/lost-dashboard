@@ -1,4 +1,4 @@
-<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main" *ngIf="loggedIn()">
+<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main" *ngIf="validLogin()">
   <div class="container-fluid">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"

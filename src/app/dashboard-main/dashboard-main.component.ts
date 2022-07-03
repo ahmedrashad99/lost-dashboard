@@ -14,6 +14,8 @@ export class DashboardMainComponent implements OnInit {
 
   counts: any;
   storeOwners: any[];
+  storeOwnerIdForEdit: number;
+  editStoreOwnerMode: boolean = false;
 
   constructor(private authService: AuthService, private dashboardService: DashboardService, private storeOwnerService: StoreOwnerService, private alertify: AlertifyService) { }
 
@@ -40,8 +42,26 @@ export class DashboardMainComponent implements OnInit {
   }
 
   deleteStoreOwner(id: number) {
-    this.storeOwnerService.deleteStoreOwner(id).subscribe(() => { this.alertify.success("User Successfully Deleted!") });
+    this.storeOwnerService.deleteStoreOwner(id).subscribe((response:any) => { 
+      if(response.status){
+        this.alertify.success(response.msg);
+        window.location.reload();
+      }
+      else{
+        this.alertify.error(response.msg);
+      }
+    });
   }
+
+  editStoreOwnerToggle(storeOwnerId: number) {
+    this.editStoreOwnerMode = true;
+    this.storeOwnerIdForEdit = storeOwnerId;
+  }
+
+  cancelEditStoreOwner(editStoreOwnerMode: boolean) {
+    this.editStoreOwnerMode = editStoreOwnerMode;
+  }
+  
   
 
 }

@@ -323,3 +323,10 @@ p {
         flex: 0 0 25%;
     }
 }
+@media (max-width:576px) {
+    .thumbnail { //To be continued
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+}

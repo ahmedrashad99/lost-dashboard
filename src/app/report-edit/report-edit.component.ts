@@ -22,6 +22,7 @@ export class ReportEditComponent implements OnInit {
   colors: any[]
   RAM: any[];
   ROM: any[];
+  convertedFile: any;
 
   constructor(private reportService: ReportService, private alertify: AlertifyService, private userService: UserService) { }
 
@@ -42,11 +43,6 @@ export class ReportEditComponent implements OnInit {
 
   }
 
-  onChange(event:any){
-    const selectedFile = event.target.files[0];
-    this.report.devicePicture = selectedFile;
-  }
-
   editReport() {
     const uploadData = new FormData();
     uploadData.append('serialNumber', this.report.serialNumber.toString());
@@ -65,11 +61,14 @@ export class ReportEditComponent implements OnInit {
     uploadData.append('additional_info', this.report.additional_info);
     uploadData.append('devicePicture', this.report.devicePicture);
 
+    
+
+    
+
       this.reportService.updateReport(this.report.reportID, uploadData).subscribe((response: any) => {
         if(response.status)
         {
           this.alertify.success(response.msg);
-          this.reportEditForm.reset(this.report);
           window.location.reload();
         }
         else {
@@ -98,13 +97,46 @@ export class ReportEditComponent implements OnInit {
     this.brands = this.alertify.Brand()
     .filter(e=> 
      e.id == brand.target.value);
-     console.log(this.brands);
   }
   onSelectBrand(model: any){
     this.models = this.alertify.Model()
     .filter(e=> 
      e.id == model.target.value);
-     console.log(this.models);
+  }
+  onSelectModel(photo: any){
+    let currentModel = this.models[0].items.filter((p: { id: any; }) => p.id == photo.target.value);
+    let devicePhotoUrl = '../../assets/img/devices/' + this.report.type + '/' 
+    + this.report.brand + '/' + currentModel[0].img;
+    // this.devicePhoto.src = devicePhotoUrl;
+    // document.getElementById('imageTag')?.appendChild(this.devicePhoto);
+    fetch(devicePhotoUrl)
+            .then((e) => {
+              return e.blob();
+            })
+            .then((blob) => {
+              let b: any = blob;
+              b.lastModifiedDate = new Date();
+              b.name = currentModel[0].img;
+              this.convertedFile = new File([b], b.name);
+              this.devicePicture();
+            });
+    }
+    devicePicture(){
+      const selectedFile = this.convertedFile;
+      this.report.devicePicture = selectedFile;
+    }
+
+
+
+
+
+
+
+
+
+
+  capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
 }

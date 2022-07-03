@@ -62,7 +62,8 @@ export class ReviewAddComponent implements OnInit {
     
       this.reviewService.addReview(uploadData).subscribe((response:any) => {
         if(response.status) {
-          this.alertify.success("Adding a review was successful!");          
+          this.alertify.success(response.msg); 
+          window.location.reload();       
         }
         else {
           this.alertify.error(response.msg);
@@ -70,7 +71,7 @@ export class ReviewAddComponent implements OnInit {
       }, error => {
         this.alertify.error('Adding a review Failed!');
       }, () => {
-        window.location.reload();
+        
       });
     
   }

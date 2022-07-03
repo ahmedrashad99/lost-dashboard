@@ -11,8 +11,8 @@ export class AdminTopbarComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  loggedIn() {
-    if(this.authService.loggedIn())
+  validLogin() {
+    if(this.authService.loggedIn() && !this.authService.expiredToken())
     {
       return true;
     }

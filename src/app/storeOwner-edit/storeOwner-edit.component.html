@@ -185,7 +185,7 @@ href=
                       aria-label=".form-select-lg example" [(ngModel)]="storeOwner.Store.government"
                       name="Store.government" (change)="onSelectGovernment($event)">
                       <optgroup label="Select Government">
-                        <option *ngFor="let government of governments" value="{{government.id}}">{{government.id}}</option>
+                        <option *ngFor="let government of governments" value="{{government.id}}">{{government.id | hypenRemoverPipe}}</option>
                       </optgroup>
                   </select>
               </div>
@@ -194,7 +194,7 @@ href=
                     aria-label=".form-select-lg example" [(ngModel)]="storeOwner.Store.city"
                     name="Store.city">
                     <optgroup label="Select City">
-                      <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+                      <option *ngFor="let city of cities" value="{{city.name}}">{{city.name | hypenRemoverPipe}}</option>
                     </optgroup>
                 </select>
             </div>

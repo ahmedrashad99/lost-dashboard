@@ -11,10 +11,10 @@ export class AuthGuard implements CanActivate {
 
   }
   canActivate(): boolean {
-    if (this.authService.loggedIn()) {
+    if (this.authService.loggedIn() && !this.authService.expiredToken()) {
       return true;
     }
-
+    
     this.router.navigate(['home']);
     return false;
   }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://127.0.0.1:8000/api/admin/"
+  // baseUrl: "http://127.0.0.1:8000/api/admin/"
+  baseUrl: "http://lost.360-courses.com/api/admin/"
 };
 
 /*

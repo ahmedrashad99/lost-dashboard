@@ -31,6 +31,7 @@ import { statusRead } from './Models/statusRead';
 import { DashboardService } from './Services/dashboard.service';
 import { ReviewEditComponent } from './review-edit/review-edit.component';
 import { ReportEditComponent } from './report-edit/report-edit.component';
+import { hypenRemoverPipe } from './Models/hypenRemoverPipe';
 // import { RevieweditComponent } from './review-edit/review-edit.component';
 
 export function tokenGetter() {
@@ -56,7 +57,8 @@ export function tokenGetter() {
     ReviewAddComponent,
     statusRead,
     ReviewEditComponent,
-    ReportEditComponent
+    ReportEditComponent,
+    hypenRemoverPipe
    ],
   imports: [
     BrowserModule,

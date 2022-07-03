@@ -38,8 +38,8 @@ export class ReportsComponent implements OnInit {
   deleteReport(reportID: number) {
     this.reportService.deleteReport(reportID).subscribe((response:any) => {
       if(response.status) {
-        this.alertify.success("Report successfully deleted!");
-        window.location.reload;
+        this.alertify.success(response.msg);
+        window.location.reload();
       }
       else {
         this.alertify.error(response.msg); 
